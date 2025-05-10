@@ -18,11 +18,8 @@ public class CurrencyRateController {
         this.webClient = webClientBuilder.baseUrl("https://api.nbp.pl/").build();
     }
 
-    /*
-https://api.nbp.pl/api/exchangerates/rates/{table}/{code}/{date}/
-     */
     @GetMapping("/usd/{date}/{usdAmount}")
-    public Mono<ResponseEntity<String>> getUsdPlnExchangeRate(@PathVariable String date ,@PathVariable double usdAmount) {
+    public Mono<ResponseEntity<String>> getUsdPlnExchangeRate(@PathVariable String date, @PathVariable double usdAmount) {
         String uri = String.format("/api/exchangerates/rates/A/USD/%s/?format=json", date);
 
         return webClient.get()
