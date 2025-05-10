@@ -1,4 +1,4 @@
-package com.placki.companyresources.controllers;
+package com.placki.companyresources.dto;
 
 import lombok.Data;
 

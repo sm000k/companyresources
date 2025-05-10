@@ -1,5 +1,6 @@
 package com.placki.companyresources.controllers;
 
+import com.placki.companyresources.dto.NbpRateResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
