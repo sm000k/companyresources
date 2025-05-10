@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.4.5'
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'com.github.node-gradle.node' version '3.5.1' // Plugin Node.js
 }
 
 group = 'com.placki'
@@ -34,7 +35,28 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
     runtimeOnly 'com.h2database:h2'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+node {
+    version = '18.16.0' // Wersja Node.js
+    npmVersion = '9.5.1' // Wersja npm
+    download = true // Pobierz Node.js i npm, jeśli nie są zainstalowane
+    workDir = layout.buildDirectory.dir("nodejs").get().asFile
+    nodeModulesDir = file("frontend")
+}
+
+
+tasks.register('npmBuild', com.github.gradle.node.npm.task.NpmTask) {
+    args = ['run', 'build']
+    dependsOn 'npmInstall'
+    workingDir = file("frontend")
+}
+
+tasks.named('processResources') {
+    dependsOn 'npmBuild'
+    from("frontend/build") {
+        into 'static'
+    }
 }
 
 tasks.named('test') {
