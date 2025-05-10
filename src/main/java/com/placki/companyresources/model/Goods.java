@@ -1,19 +1,20 @@
 package com.placki.companyresources.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
-
+@NoArgsConstructor
 @AllArgsConstructor
 @Data
-@EntityScan
-public class GoodsModel {
+@Entity
+public class Goods {
     @Id
     @GeneratedValue(generator = "UUID")
     private UUID id;
@@ -21,5 +22,4 @@ public class GoodsModel {
     private LocalDate bookingDate;
     private double priceUSD;
     private double pricePLN;
-
 }
