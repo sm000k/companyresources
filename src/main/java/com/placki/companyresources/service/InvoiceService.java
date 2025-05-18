@@ -18,7 +18,7 @@ public class InvoiceService {
 
     public Invoice generateInvoice() {
         Invoice invoice = new Invoice();
-        invoice.setComputers(getResources());
+        invoice.setResources(getResources());
         return invoice;
     }
 

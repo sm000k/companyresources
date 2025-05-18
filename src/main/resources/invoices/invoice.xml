@@ -1,45 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<faktura>
-    <komputer>
+<invoice>
+    <resource>
         <bookingDate/>
-        <id>8c0fc8b7-c65f-43b3-b439-0669070a47e4</id>
+        <id>5db7b1e0-10a3-4e37-8f22-9f94c5f816f6</id>
         <name>Komputer ACER Aspire</name>
         <pricePLN>1432.164</pricePLN>
         <priceUSD>345.0</priceUSD>
-    </komputer>
-    <komputer>
+    </resource>
+    <resource>
         <bookingDate/>
-        <id>8b171de7-32f9-469a-9c44-d0cc485932cf</id>
-        <name>Komputer DELL Latitude</name>
-        <pricePLN>2248.8345</pricePLN>
-        <priceUSD>543.0</priceUSD>
-    </komputer>
-    <komputer>
-        <bookingDate/>
-        <id>5bcc925e-ee47-4b2a-90b3-120a668b69bc</id>
+        <id>a3d19bbd-5351-46f5-9044-9b9241409182</id>
         <name>Komputer ACER Aspire</name>
         <pricePLN>1432.164</pricePLN>
         <priceUSD>345.0</priceUSD>
-    </komputer>
-    <komputer>
+    </resource>
+    <resource>
         <bookingDate/>
-        <id>9c94381a-9e28-461b-b322-6879b8c81a8d</id>
+        <id>ee4bd056-27b6-4d87-8ded-290b48e52339</id>
         <name>Komputer DELL Latitude</name>
         <pricePLN>2248.8345</pricePLN>
         <priceUSD>543.0</priceUSD>
-    </komputer>
-    <komputer>
+    </resource>
+    <resource>
         <bookingDate/>
-        <id>b5f5e230-3077-464a-bcf3-c2e1f8737a82</id>
-        <name>Komputer ACER Aspire</name>
-        <pricePLN>1432.164</pricePLN>
-        <priceUSD>345.0</priceUSD>
-    </komputer>
-    <komputer>
-        <bookingDate/>
-        <id>43a5b025-7d21-4183-aabb-ed87b181a6f6</id>
+        <id>124c327d-a73d-4c15-9b5a-1a9380133e84</id>
         <name>Komputer DELL Latitude</name>
         <pricePLN>2248.8345</pricePLN>
         <priceUSD>543.0</priceUSD>
-    </komputer>
-</faktura>
+    </resource>
+</invoice>

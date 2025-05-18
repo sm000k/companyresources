@@ -1,4 +1,4 @@
-package com.placki.companyresources.controllers;
+package com.placki.companyresources.controller;
 
 import com.placki.companyresources.dto.NbpRateResponse;
 import org.springframework.http.ResponseEntity;

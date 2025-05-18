@@ -22,7 +22,7 @@ public class XmlGenerator {
      */
     public static void generateXmlFile(List<Resource> resources, String filePath) throws Exception {
         Invoice invoice = new Invoice();
-        invoice.setComputers(resources);
+        invoice.setResources(resources);
 
         JAXBContext context = JAXBContext.newInstance(Invoice.class);
         Marshaller marshaller = context.createMarshaller();

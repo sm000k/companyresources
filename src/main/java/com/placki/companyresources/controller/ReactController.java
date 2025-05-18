@@ -1,4 +1,4 @@
-package com.placki.companyresources.controllers;
+package com.placki.companyresources.controller;
 
 import com.placki.companyresources.dto.CreateResourceRequest;
 import com.placki.companyresources.dto.CreateResourceResponse;

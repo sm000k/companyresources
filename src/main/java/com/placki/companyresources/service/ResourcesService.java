@@ -1,6 +1,6 @@
 package com.placki.companyresources.service;
 
-import com.placki.companyresources.controllers.CurrencyRateController;
+import com.placki.companyresources.controller.CurrencyRateController;
 import com.placki.companyresources.dto.CreateResourceRequest;
 import com.placki.companyresources.dto.CreateResourceResponse;
 import com.placki.companyresources.model.Resource;
