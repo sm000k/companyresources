@@ -7,16 +7,17 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.List;
 
-@XmlRootElement(name = "faktura")
+@XmlRootElement(name = "invoice")
 public class Invoice {
-    private List<Resource> computers;
 
-    @XmlElement(name = "komputer")
-    public List<Resource> getComputers() {
-        return computers;
+    private List<Resource> resources;
+
+    @XmlElement(name = "resource")
+    public List<Resource> getResources() {
+        return resources;
     }
 
-    public void setComputers(List<Resource> computers) {
-        this.computers = computers;
+    public void setResources(List<Resource> resources) {
+        this.resources = resources;
     }
 }

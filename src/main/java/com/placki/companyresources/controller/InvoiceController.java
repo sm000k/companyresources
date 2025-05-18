@@ -1,12 +1,14 @@
 package com.placki.companyresources.controller;
 
-import com.placki.companyresources.model.Resource;
 import com.placki.companyresources.service.InvoiceService;
 import com.placki.companyresources.utilities.XmlGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/invoices")
@@ -19,20 +21,33 @@ public class InvoiceController {
         this.invoiceService = invoiceService;
     }
 
-    @GetMapping
-    public String generateInvoiceXml() {
+    /**
+     * Generates an XML file for the invoice and returns the file path.
+     *
+     * @return A map containing the status message and file path.
+     */
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map<String, String> generateInvoiceXml() {
+        Map<String, String> response = new HashMap<>();
         try {
-            String fileName = "invoice.xml";
-            XmlGenerator.generateXmlFile(invoiceService.getResources(), fileName);
-            return "Invoice XML generated successfully: " + fileName;
-        } catch (Exception e) {
-            return "Error generating XML: " + e.getMessage();
-        }
-    }
+            String directoryPath = "src/main/resources/invoices";
+            String filePath = directoryPath + "/invoice.xml";
 
-    @PostMapping
-    public String addResources(@RequestBody List<Resource> resources) {
-        invoiceService.addResources(resources);
-        return "Resources added successfully!";
+            // Ensure the directory exists
+            File directory = new File(directoryPath);
+            if (!directory.exists() && !directory.mkdirs()) {
+                throw new IllegalStateException("Failed to create directory: " + directoryPath);
+            }
+
+            // Generate the XML file
+            XmlGenerator.generateXmlFile(invoiceService.getResources(), filePath);
+
+            response.put("message", "Invoice XML generated successfully");
+            response.put("filePath", filePath);
+        } catch (Exception e) {
+            response.put("message", "Error generating XML");
+            response.put("error", e.getMessage());
+        }
+        return response;
     }
 }

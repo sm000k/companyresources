@@ -45,10 +45,15 @@ tasks.register('copyFrontendToStatic', Copy) {
     def sourcePath = file("${project.rootDir}/frontend/my-react-app/build")
     def destinationPath = file("${project.rootDir}/src/main/resources/static")
 
-    from sourcePath // Source folder
-    into destinationPath // Destination folder
+    from(sourcePath) // Source folder
+    into(destinationPath) // Destination folder
 
     doFirst {
+        // Ensure the source folder exists
+        if (!sourcePath.exists()) {
+            throw new GradleException("Source folder does not exist: ${sourcePath}")
+        }
+
         // Ensure the destination folder exists
         if (!destinationPath.exists()) {
             println "Destination folder does not exist. Creating: ${destinationPath}"
@@ -61,12 +66,12 @@ tasks.register('copyFrontendToStatic', Copy) {
 
 // Ensure the copy task runs before processResources
 tasks.named('processResources') {
-    dependsOn copyFrontendToStatic
+    dependsOn tasks.named('copyFrontendToStatic')
 }
 
 // Ensure the copy task runs before bootRun
 tasks.named('bootRun') {
-    dependsOn copyFrontendToStatic
+    dependsOn tasks.named('copyFrontendToStatic')
 }
 
 
