@@ -42,7 +42,7 @@ tasks.named('test') {
 
 // Custom Gradle task to copy files
 tasks.register('copyFrontendToStatic', Copy) {
-    def sourcePath = file("${project.rootDir}/frontend/frontend-app/dist/frontend-app/browser")
+    def sourcePath = file("${project.rootDir}/frontend/my-react-app/build")
     def destinationPath = file("${project.rootDir}/src/main/resources/static")
 
     from sourcePath // Source folder

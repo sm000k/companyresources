@@ -1,23 +1,18 @@
-package com.placki.companyresources.model;
+package com.placki.companyresources.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.UUID;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Data
-@Entity
-public class Goods {
-    @Id
-    @GeneratedValue(generator = "UUID")
-    private UUID id;
+public class CreateResourceResponse {
     private String name;
     private LocalDate bookingDate;
     private double priceUSD;
