@@ -2,30 +2,30 @@
 <invoice>
     <resource>
         <bookingDate/>
-        <id>5db7b1e0-10a3-4e37-8f22-9f94c5f816f6</id>
+        <id>586b35c0-4e1e-4231-b455-62ba688ea465</id>
         <name>Komputer ACER Aspire</name>
-        <pricePLN>1432.164</pricePLN>
-        <priceUSD>345.0</priceUSD>
+        <pricePLN>1432.16</pricePLN>
+        <priceUSD>345.00</priceUSD>
     </resource>
     <resource>
         <bookingDate/>
-        <id>a3d19bbd-5351-46f5-9044-9b9241409182</id>
+        <id>656d5f4d-34ce-4d4b-935c-02243819aa1a</id>
+        <name>Komputer DELL Latitude</name>
+        <pricePLN>2248.83</pricePLN>
+        <priceUSD>543.00</priceUSD>
+    </resource>
+    <resource>
+        <bookingDate/>
+        <id>a4b5d14c-8101-43fe-911e-a2fac7f452e5</id>
         <name>Komputer ACER Aspire</name>
-        <pricePLN>1432.164</pricePLN>
-        <priceUSD>345.0</priceUSD>
+        <pricePLN>1432.16</pricePLN>
+        <priceUSD>345.00</priceUSD>
     </resource>
     <resource>
         <bookingDate/>
-        <id>ee4bd056-27b6-4d87-8ded-290b48e52339</id>
+        <id>5f3c7d2d-b9c1-4885-b4c0-74354f36b516</id>
         <name>Komputer DELL Latitude</name>
-        <pricePLN>2248.8345</pricePLN>
-        <priceUSD>543.0</priceUSD>
-    </resource>
-    <resource>
-        <bookingDate/>
-        <id>124c327d-a73d-4c15-9b5a-1a9380133e84</id>
-        <name>Komputer DELL Latitude</name>
-        <pricePLN>2248.8345</pricePLN>
-        <priceUSD>543.0</priceUSD>
+        <pricePLN>2248.83</pricePLN>
+        <priceUSD>543.00</priceUSD>
     </resource>
 </invoice>

@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
@@ -15,5 +16,5 @@ import java.time.LocalDate;
 public class CreateResourceRequest {
     private String name;
     private LocalDate bookingDate;
-    private double priceUSD;
+    private BigDecimal priceUSD; // Changed from double to BigDecimal
 }

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+import java.math.BigDecimal;
+
 @Controller
 @RequestMapping("/api/exchange-rate")
 public class CurrencyRateController {
@@ -20,7 +22,7 @@ public class CurrencyRateController {
     }
 
     @GetMapping("/usd/{date}/{usdAmount}")
-    public Mono<ResponseEntity<String>> getUsdPlnExchangeRate(@PathVariable String date, @PathVariable double usdAmount) {
+    public Mono<ResponseEntity<String>> getUsdPlnExchangeRate(@PathVariable String date, @PathVariable BigDecimal usdAmount) {
         String uri = String.format("/api/exchangerates/rates/A/USD/%s/?format=json", date);
 
         return webClient.get()
@@ -28,14 +30,14 @@ public class CurrencyRateController {
                 .retrieve()
                 .bodyToMono(NbpRateResponse.class)
                 .map(response -> {
-                    double rate = response.getRates().get(0).getMid();
-                    double plnValue = usdAmount * rate;
+                    BigDecimal rate = response.getRates().get(0).getMid();
+                    BigDecimal plnValue = usdAmount.multiply(rate);
                     String formatted = String.format("USD to PLN on %s: %.4f", date, plnValue);
                     return ResponseEntity.ok(formatted);
                 });
     }
 
-    public Mono<ResponseEntity<Double>> ConvertUsdPln(String date, double usdAmount) {
+    public Mono<ResponseEntity<BigDecimal>> convertUsdPLn(String date, BigDecimal usdAmount) {
         String uri = String.format("/api/exchangerates/rates/A/USD/%s/?format=json", date);
 
         return webClient.get()
@@ -43,8 +45,8 @@ public class CurrencyRateController {
                 .retrieve()
                 .bodyToMono(NbpRateResponse.class)
                 .map(response -> {
-                    double rate = response.getRates().get(0).getMid();
-                    double plnValue = usdAmount * rate;
+                    BigDecimal rate = response.getRates().get(0).getMid();
+                    BigDecimal plnValue = usdAmount.multiply(rate);
                     return ResponseEntity.ok(plnValue);
                 });
     }

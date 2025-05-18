@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -22,6 +23,6 @@ public class Resource {
     private UUID id;
     private String name;
     private LocalDate bookingDate;
-    private double priceUSD;
-    private double pricePLN;
+    private BigDecimal priceUSD; // Changed from double to BigDecimal
+    private BigDecimal pricePLN; // Changed from double to BigDecimal
 }
