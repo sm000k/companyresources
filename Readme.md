@@ -44,5 +44,3 @@
 ## Rozwiązywanie problemów
 
 - Upewnij się, że używasz Java 17 lub nowszej (`java -version`).
-- Jeśli zmieniasz frontend, przebuduj go przed uruchomieniem backendu.
-- Jeśli pojawiają się błędy dotyczące brakujących beanów w testach, używaj `@Mock` i `@InjectMocks` zamiast przestarzałego `@MockBean`.
