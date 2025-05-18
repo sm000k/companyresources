@@ -23,7 +23,6 @@ public class InvoiceService {
     }
 
     public List<Resource> getResources() {
-        // Fetch resources from the database
         return resourcesRepository.findAll();
     }
 }

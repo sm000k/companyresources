@@ -23,6 +23,6 @@ public class Resource {
     private UUID id;
     private String name;
     private LocalDate bookingDate;
-    private BigDecimal priceUSD; // Changed from double to BigDecimal
-    private BigDecimal pricePLN; // Changed from double to BigDecimal
+    private BigDecimal priceUSD;
+    private BigDecimal pricePLN;
 }

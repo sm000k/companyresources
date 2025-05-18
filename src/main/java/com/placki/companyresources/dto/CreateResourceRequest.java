@@ -16,5 +16,5 @@ import java.time.LocalDate;
 public class CreateResourceRequest {
     private String name;
     private LocalDate bookingDate;
-    private BigDecimal priceUSD; // Changed from double to BigDecimal
+    private BigDecimal priceUSD;
 }

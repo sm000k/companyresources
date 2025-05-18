@@ -14,6 +14,6 @@ public class NbpRateResponse {
     public static class Rate {
         private String no;
         private String effectiveDate;
-        private BigDecimal mid; // Changed from double to BigDecimal
+        private BigDecimal mid;
     }
 }
