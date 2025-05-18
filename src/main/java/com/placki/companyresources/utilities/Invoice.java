@@ -1,4 +1,3 @@
-// Model XML
 package com.placki.companyresources.utilities;
 
 import com.placki.companyresources.model.Resource;

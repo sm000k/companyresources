@@ -21,11 +21,6 @@ public class InvoiceController {
         this.invoiceService = invoiceService;
     }
 
-    /**
-     * Generates an XML file for the invoice and returns the file path.
-     *
-     * @return A map containing the status message and file path.
-     */
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Map<String, String> generateInvoiceXml() {
         Map<String, String> response = new HashMap<>();
@@ -33,13 +28,11 @@ public class InvoiceController {
             String directoryPath = "src/main/resources/invoices";
             String filePath = directoryPath + "/invoice.xml";
 
-            // Ensure the directory exists
             File directory = new File(directoryPath);
             if (!directory.exists() && !directory.mkdirs()) {
                 throw new IllegalStateException("Failed to create directory: " + directoryPath);
             }
 
-            // Generate the XML file
             XmlGenerator.generateXmlFile(invoiceService.getResources(), filePath);
 
             response.put("message", "Invoice XML generated successfully");
