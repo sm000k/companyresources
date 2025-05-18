@@ -1,15 +1,12 @@
 package com.placki.companyresources.service;
 
-import com.placki.companyresources.controller.CurrencyRateController;
 import com.placki.companyresources.dto.CreateResourceRequest;
 import com.placki.companyresources.dto.CreateResourceResponse;
 import com.placki.companyresources.model.Resource;
 import com.placki.companyresources.repositories.ResourcesRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import reactor.core.publisher.Mono;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -19,14 +16,11 @@ import java.util.List;
 @AllArgsConstructor
 public class ResourcesService {
     private final ResourcesRepository resourcesRepository;
-    private final CurrencyRateController currencyRateController;
+    private final CurrencyService currencyService;
 
     public CreateResourceResponse createResource(CreateResourceRequest resourceRequest) {
 
-        Mono<ResponseEntity<BigDecimal>> pricePLNMono = currencyRateController
-                .convertUsdPLn(resourceRequest.getBookingDate().toString(), resourceRequest.getPriceUSD());
-
-        BigDecimal pricePLN = pricePLNMono.map(ResponseEntity::getBody).block();
+        BigDecimal pricePLN = currencyService.getPlnValue(resourceRequest.getBookingDate().toString(), resourceRequest.getPriceUSD()).getBody();
 
         if (pricePLN == null) {
             throw new IllegalStateException("Unable to fetch PLN value for the provided data.");
@@ -55,6 +49,7 @@ public class ResourcesService {
     public List<Resource> getResourcesByBookingDateDynamicSorting(LocalDate date, String sortBy, String order) {
         return resourcesRepository.getResourcesByBookingDate(date, sortBy, order);
     }
+
     public List<Resource> getResourcesByName(String keyword, String sortBy, String order) {
         return resourcesRepository.getResourcesByName(keyword, sortBy, order);
     }
